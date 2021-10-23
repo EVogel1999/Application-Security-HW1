@@ -1,0 +1,3 @@
+break /home/seed/Documents/Homework 1/helloworld.c:4
+strace *0x0804841c
+

@@ -1,0 +1,23 @@
+b)
+	0xbfffef23
+	When setting a breakpoint at main and running the program, the stack in
+	the terminal holds the address to one of the environment variables shown
+	by using the 'show environment' command.
+
+c)
+	Unknown.  Unable to use commands 'info args' or 'print argv@argc'.  I
+	get 'No symbol table info available.' and 'No symbol "argv" in current
+	context.' respectively.
+
+d)
+	EIP - 0x80483f4
+	ESP - 0xbfffec5c
+	EBP - 0x0
+
+e)
+	0x0804a018 contains the start location of "hello world ASM"
+
+f)
+	The return value of a linux system call is stored in EAX.  The value of
+	EAX after running the system call for this program is:
+	0x11

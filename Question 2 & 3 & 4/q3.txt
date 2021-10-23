@@ -1,0 +1,17 @@
+3a.
+	ESP is 0xbfffec30
+
+3b.
+	EBP is 0xbfffec48
+
+3c.
+	EIP is 0x804841c <main+17>
+
+3d.
+	0xb7d8263a <__libc_start_main+250>:	sub    esp,0xc
+	0xb7d8263d <__libc_start_main+253>:	push   eax
+	0xb7d8263e <__libc_start_main+254>:	
+    	    call   0xb7d989d0 <__GI_exit>
+	0xb7d82643 <__libc_start_main+259>:	xor    ecx,ecx
+	0xb7d82645 <__libc_start_main+261>:	
+    	    jmp    0xb7d82572 <__libc_start_main+50>

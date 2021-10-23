@@ -1,0 +1,31 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+	// Setup random number generator
+	time_t t;
+   	srand((unsigned) time(&t));
+
+	// Get inputs from user
+	int n, m;
+	printf("Input integers n &  m on the same line\n");
+	printf("Ex. 1 2\n");
+	int check = scanf("%d %d", &n, &m);
+	if (check != 2 || n <= 0 || m <= 0) {
+		printf("Incorrect input");
+		return 0;
+	}
+
+	// Create the matrices
+	int a[n][m];
+	int b[n][m];
+	return 0;
+}
+
+void createMatrix(int[][] *matrix) {
+
+}
+
+int generateNum() {
+	return rand() % 100;
+}

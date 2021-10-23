@@ -1,0 +1,5 @@
+q8.c contains simple code to take two unsigned shorts as input from the user.  If the sum of the numbers is less then 50 then the function returns 1 and it outputs 'Correct!' onto the screen.  If the user inputs a number greater then or equal to 50 then the program outputs 'Incorrect' onto the screen.
+
+The integer overflow vulnerability is executed when the user inputs a value that is greater then the max unsigned short value (32767).  Meaning if the user inputs 32768 3 then the program will output 'Correct!'.  This is because the value wraps around after it exceeds the max, so 32768 is saved as 1 and, therefore, passes the check (1 + 3 < 50).
+
+The solution was to check if the values exceeded the max and min amounts, returning an error if integer overflow was detected.

@@ -1,0 +1,13 @@
+2a.
+	It points out unused variables, initialized or uninitialized.
+
+2b.
+	It emulates the semantics under the C standard.  So a warning for setting
+	something to NULL would throw an error under the pedantic flag.
+
+2c.
+	When using the g option in gcc the file was larger (8292) then not using
+	the option (7352).
+
+2d.
+	All options (O1, O2, and O3) are the same size: 7360.

@@ -1,0 +1,9 @@
+q6.c contains a stack based buffer overflow vulnerability as the size of the string inputed by the user is not correctly checked for length before calling the strcpy() function.  The reason this is not heap based is because this program does not dynamically allocate memory.
+
+This program takes a 15 character input and checks if the first letter of the string is a 'z'.  If it is, it prints out 'Correct!' otherwise it will print out 'Wrong'.
+
+If the user inputs a string that is greater then 15 characters, the program outputs a 'segmentation fault'.  Ex. 'aaaaaaaaaaaaaaaa'.  The reason for 15 characters and not 16 is because of the end string operator '/0'.
+
+Why the program crashes with a segmentation fault is because the local variables overwrite the memory locations of the stack (including the EBP), which causes the error.
+
+Before the strcpy() command, the EBP is 0xbfffec58 and the memory below it in the stack is initialized to 0xb7f1c000.  After the string copy (with the string mentioned above that causes the segmentation fault), the EBP is 0xbfffec00 and the memory  that contained the local buffer is 0x61616161
